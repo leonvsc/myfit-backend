@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="42541495-ce68-4417-958e-6d856a882858" name="Changes" comment="Added domain model and first service class">
+      <change afterPath="$PROJECT_DIR$/src/controllers/exercise.controller.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/controllers/performedExercise.controller.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/controllers/set.controller.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/controllers/workout.controller.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/dtos/exercise.dto.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/dtos/performedexercise.dto.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/dtos/set.dto.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/dtos/workout.dto.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/interfaces/set.interface.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/models/set.model.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/services/exercize.service.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/services/performedexercise.service.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/services/set.service.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/services/workout.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controllers/auth.controller.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/http/auth.http" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/interfaces/auth.interface.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/interfaces/performedexercize.interface.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/interfaces/performedexercize.interface.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/middlewares/auth.middleware.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/performedexercize.model.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/performedexercize.model.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/users.model.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/users.model.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/auth.route.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/auth.service.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/exersize.service.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/auth.test.ts" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="TypeScript JSX File" />
+        <option value="TypeScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/src/models/users.model.ts" root0="FORCE_HIGHLIGHTING" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 1
+}</component>
+  <component name="ProjectId" id="2h8UNJT5pNLe4QLJ9LPJgShPpOC" />
+  <component name="ProjectViewState">
+    <option name="autoscrollFromSource" value="true" />
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;HTTP Request.users | #1.executor&quot;: &quot;Run&quot;,
+    &quot;HTTP Request.users | #2.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/jesse/WebstormProjects/MyFitBackEnd/src/interfaces&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;npm.start.executor&quot;: &quot;Run&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;/home/jesse/WebstormProjects/MyFitBackEnd/node_modules/typescript/lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/interfaces" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+    </key>
+  </component>
+  <component name="RunManager" selected="HTTP Request.users | #1">
+    <configuration name="users | #1" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/src/http/users.http" requestIdentifier="#1" runType="Run single request">
+      <method v="2" />
+    </configuration>
+    <configuration name="users | #2" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/src/http/users.http" index="2" requestIdentifier="#2" runType="Run single request">
+      <method v="2" />
+    </configuration>
+    <configuration name="start" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="start" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="HTTP Request.users | #1" />
+        <item itemvalue="npm.start" />
+        <item itemvalue="HTTP Request.users | #2" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-js-predefined-1d06a55b98c1-0b3e54e931b4-JavaScript-WS-241.17011.90" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="42541495-ce68-4417-958e-6d856a882858" name="Changes" comment="" />
+      <created>1716975156144</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1716975156144</updated>
+      <workItem from="1716975157154" duration="450000" />
+      <workItem from="1716975816516" duration="241000" />
+      <workItem from="1716976077658" duration="4995000" />
+      <workItem from="1717242230870" duration="3626000" />
+    </task>
+    <task id="LOCAL-00001" summary="Added domain model and first service class">
+      <option name="closed" value="true" />
+      <created>1716990328259</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1716990328259</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Added domain model and first service class" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added domain model and first service class" />
+  </component>
+</project>
