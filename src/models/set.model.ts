@@ -6,7 +6,7 @@ export interface Set extends Document {
   performedExercize: Schema.Types.ObjectId;
 }
 
-const setSchema: Schema = new Schema({
+export const setSchema: Schema = new Schema({
   reps: { type: Number, required: true },
   weight: { type: Number, required: true },
   performedExercize: { type: Schema.Types.ObjectId, ref: 'PerformedExercize', required: true },
