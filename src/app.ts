@@ -57,10 +57,15 @@ class App {
     if (this.env !== 'production') {
       set('debug', true);
     }
-
-    await connect(dbConnection.url);
+  
+    try {
+      await connect(dbConnection.url);
+      console.log('Successfully connected to MongoDB');
+    } catch (error) {
+      console.error('Error connecting to MongoDB:', error);
+    }
   }
-
+  
   private initializeMiddlewares() {
     this.app.use(morgan(LOG_FORMAT, { stream }));
     this.app.use(cors({ origin: ORIGIN, credentials: CREDENTIALS }));

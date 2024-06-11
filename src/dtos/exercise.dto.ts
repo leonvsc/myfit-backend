@@ -1,4 +1,7 @@
+import { IsString } from 'class-validator';
+
 export class CreateExerciseDTO {
+  @IsString()
   name: string;
 
   constructor(name: string) {
