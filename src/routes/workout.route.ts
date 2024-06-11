@@ -18,6 +18,7 @@ class WorkoutRoutes {
     this.router.post('/workouts', validationMiddleware(WorkoutDTO, 'body'), this.workoutController.createWorkout);
     this.router.put('/workouts/:id', validationMiddleware(WorkoutDTO, 'body'), this.workoutController.updateWorkout);
     this.router.delete('/workouts/:id', this.workoutController.deleteWorkout);
+    this.router.post('/workouts/:workoutId/link/:performedExerciseId', this.workoutController.linkPerformedExerciseToWorkout);
   }
 }
 

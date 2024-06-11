@@ -2,9 +2,12 @@ import workoutModel from '@models/workout.model';
 import { Workout } from '@interfaces/workout.interface';
 import { HttpException } from '@exceptions/HttpException';
 import { WorkoutDTO } from '@dtos/workout.dto';
+import {PerformedExercize} from "@interfaces/performedexercize.interface";
+import performedExersizeModel from "@models/performedexercize.model";
 
 class WorkoutService {
   public workouts = workoutModel;
+  public performedExercizes =  performedExersizeModel;
 
   public async findAllWorkouts(): Promise<Workout[]> {
     return this.workouts.find();
@@ -48,6 +51,13 @@ class WorkoutService {
     }
 
     return updatedWorkout as Workout;
+  }
+
+  public async linkPerformedExercise(workoutId: string, performedExerciseId: string): Promise<void>{
+    const workout : Workout = await this.workouts.findOne({ _id: workoutId});
+    const performedExercize : PerformedExercize = await this.performedExercizes.findOne({ _id: performedExerciseId});
+    workout.exercises.push(performedExercize);
+    this.workouts.updateOne({ _id: workoutId }, { $set: workout });
   }
 }
 
