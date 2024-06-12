@@ -61,7 +61,7 @@ class WorkoutController {
     const performedExerciseId: string = req.params.performedExerciseId;
 
     try {
-      this.workoutService.linkPerformedExercise(workoutId, performedExerciseId);
+      await this.workoutService.linkPerformedExercise(workoutId, performedExerciseId);
       res.status(200).json({ message: 'Performed Exercise linked successfully.' });
     } catch (error) {
       next(error);
