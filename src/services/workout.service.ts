@@ -53,7 +53,7 @@ class WorkoutService {
     return updatedWorkout as Workout;
   }
 
-  public async linkPerformedExercise(workoutId: string, performedExerciseId: string): Promise<void>{
+  public async linkPerformedExercise(workoutId: string, performedExerciseId: string): Promise<void> {
     const workout: Workout = await this.workouts.findOne({ _id: workoutId });
     const performedExercizeToLink: PerformedExercize = await this.performedExercizes.findOne({ _id: performedExerciseId });
     workout.exercises.push(performedExercizeToLink);
