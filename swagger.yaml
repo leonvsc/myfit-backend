@@ -77,30 +77,30 @@ paths:
         '204':
           description: No Content
 
-  /performed-exercizes:
+  /performed-exercises:
     get:
       summary: Get all performed exercises
-      operationId: getPerformedExercizes
+      operationId: getPerformedExercises
       responses:
         '200':
           description: OK
     post:
       summary: Create a new performed exercise
-      operationId: createPerformedExercize
+      operationId: createPerformedExercise
       requestBody:
         required: true
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/PerformedExercizeDTO'
+              $ref: '#/components/schemas/PerformedExerciseDTO'
       responses:
         '201':
           description: Created
 
-  /performed-exercizes/{id}:
+  /performed-exercises/{id}:
     get:
       summary: Get a performed exercise by ID
-      operationId: getPerformedExercizeById
+      operationId: getPerformedExerciseById
       parameters:
         - name: id
           in: path
@@ -112,7 +112,7 @@ paths:
           description: OK
     put:
       summary: Update a performed exercise by ID
-      operationId: updatePerformedExercize
+      operationId: updatePerformedExercise
       parameters:
         - name: id
           in: path
@@ -124,13 +124,13 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/PerformedExercizeDTO'
+              $ref: '#/components/schemas/PerformedExerciseDTO'
       responses:
         '200':
           description: OK
     delete:
       summary: Delete a performed exercise by ID
-      operationId: deletePerformedExercize
+      operationId: deletePerformedExercise
       parameters:
         - name: id
           in: path
@@ -140,6 +140,20 @@ paths:
       responses:
         '204':
           description: No Content
+
+  /sets:
+    post:
+      summary: Create a new set
+      operationId: createSet
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateSetDTO'
+      responses:
+        '201':
+          description: Created
 
   /sets/{id}:
     get:
@@ -154,18 +168,6 @@ paths:
       responses:
         '200':
           description: OK
-    post:
-      summary: Create a new set
-      operationId: createSet
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/CreateSetDTO'
-      responses:
-        '201':
-          description: Created
     put:
       summary: Update a set by ID
       operationId: updateSet
@@ -260,40 +262,6 @@ paths:
       responses:
         '204':
           description: No Content
-  /workouts/{workoutId}/link/{performedExerciseId}:
-    post:
-      summary: Link a performed exercise to a workout
-      operationId: linkPerformedExerciseToWorkout
-      parameters:
-        - name: workoutId
-          in: path
-          required: true
-          schema:
-            type: string
-          description: The ID of the workout to which the exercise will be linked
-        - name: performedExerciseId
-          in: path
-          required: true
-          schema:
-            type: string
-          description: The ID of the performed exercise to link to the workout
-      responses:
-        '200':
-          description: Performed Exercise successfully linked to the Workout
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  message:
-                    type: string
-                    example: Performed Exercise linked successfully.
-        '400':
-          description: Bad Request
-        '404':
-          description: Not Found
-        '500':
-          description: Internal Server Error
 
   /workouts:
     get:
@@ -359,6 +327,41 @@ paths:
         '204':
           description: No Content
 
+  /workouts/{workoutId}/link/{performedExerciseId}:
+    post:
+      summary: Link a performed exercise to a workout
+      operationId: linkPerformedExerciseToWorkout
+      parameters:
+        - name: workoutId
+          in: path
+          required: true
+          schema:
+            type: string
+          description: The ID of the workout to which the exercise will be linked
+        - name: performedExerciseId
+          in: path
+          required: true
+          schema:
+            type: string
+          description: The ID of the performed exercise to link to the workout
+      responses:
+        '200':
+          description: Performed Exercise successfully linked to the Workout
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Performed Exercise linked successfully.
+        '400':
+          description: Bad Request
+        '404':
+          description: Not Found
+        '500':
+          description: Internal Server Error
+
 components:
   schemas:
     CreateExerciseDTO:
@@ -379,7 +382,7 @@ components:
           type: string
         duration:
           type: number
-    PerformedExercizeDTO:
+    PerformedExerciseDTO:
       type: object
       properties:
         exerciseId:

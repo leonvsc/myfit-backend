@@ -13,6 +13,7 @@ import { dbConnection } from '@databases';
 import { Routes } from '@interfaces/routes.interface';
 import errorMiddleware from '@middlewares/error.middleware';
 import { logger, stream } from '@utils/logger';
+import * as path from 'node:path';
 
 class App {
   public app: express.Application;
@@ -85,14 +86,76 @@ class App {
 
   private initializeSwagger() {
     const options = {
-      swaggerDefinition: {
+      definition: {
+        openapi: '3.0.0',
         info: {
-          title: 'REST API',
+          title: 'Fitness API',
           version: '1.0.0',
-          description: 'Example docs',
+          description: 'API voor het beheren van oefeningen, uitgevoerde oefeningen, sets, gebruikers en workouts.',
+        },
+        components: {
+          schemas: {
+            CreateExerciseDTO: {
+              type: 'object',
+              properties: {
+                name: { type: 'string' },
+                description: { type: 'string' },
+                duration: { type: 'number' },
+              },
+            },
+            UpdateExerciseDTO: {
+              type: 'object',
+              properties: {
+                name: { type: 'string' },
+                description: { type: 'string' },
+                duration: { type: 'number' },
+              },
+            },
+            PerformedExerciseDTO: {
+              type: 'object',
+              properties: {
+                exerciseId: { type: 'string' },
+                userId: { type: 'string' },
+                date: { type: 'string', format: 'date-time' },
+                notes: { type: 'string' },
+              },
+            },
+            CreateSetDTO: {
+              type: 'object',
+              properties: {
+                name: { type: 'string' },
+                repetitions: { type: 'integer' },
+                weight: { type: 'number' },
+              },
+            },
+            UpdateSetDTO: {
+              type: 'object',
+              properties: {
+                name: { type: 'string' },
+                repetitions: { type: 'integer' },
+                weight: { type: 'number' },
+              },
+            },
+            CreateUserDto: {
+              type: 'object',
+              properties: {
+                username: { type: 'string' },
+                email: { type: 'string' },
+                password: { type: 'string' },
+              },
+            },
+            WorkoutDTO: {
+              type: 'object',
+              properties: {
+                name: { type: 'string' },
+                description: { type: 'string' },
+                duration: { type: 'number' },
+              },
+            },
+          },
         },
       },
-      apis: ['swagger.yaml'],
+      apis: [path.join(__dirname, 'swagger.yaml')], // Zorg ervoor dat het pad naar swagger.yaml correct is
     };
 
     const specs = swaggerJSDoc(options);
