@@ -59,12 +59,7 @@ class App {
       set('debug', true);
     }
 
-    try {
-      await connect(dbConnection.url);
-      console.log('Successfully connected to MongoDB');
-    } catch (error) {
-      console.error('Error connecting to MongoDB:', error);
-    }
+    await connect(dbConnection.url);
   }
 
   private initializeMiddlewares() {
@@ -155,9 +150,8 @@ class App {
           },
         },
       },
-      apis: [path.join(__dirname, 'swagger.yaml')], // Zorg ervoor dat het pad naar swagger.yaml correct is
+      apis: ['swagger.yaml'], // Zorg ervoor dat het pad naar swagger.yaml correct is
     };
-
     const specs = swaggerJSDoc(options);
     this.app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(specs));
   }
