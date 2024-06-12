@@ -1,120 +1,432 @@
-tags:
-- name: users
-  description: users API
+openapi: 3.0.0
+info:
+  title: Fitness API
+  version: 1.0.0
+  description: API voor het beheren van oefeningen, uitgevoerde oefeningen, sets, gebruikers en workouts.
 
 paths:
-# [GET] users
+  /:
+    get:
+      summary: Get index route
+      operationId: getIndex
+      responses:
+        '200':
+          description: OK
+
+  /exercises:
+    get:
+      summary: Get all exercises
+      operationId: getExercises
+      responses:
+        '200':
+          description: OK
+    post:
+      summary: Create a new exercise
+      operationId: createExercise
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateExerciseDTO'
+      responses:
+        '201':
+          description: Created
+
+  /exercises/{id}:
+    get:
+      summary: Get an exercise by ID
+      operationId: getExerciseById
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+    put:
+      summary: Update an exercise by ID
+      operationId: updateExercise
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateExerciseDTO'
+      responses:
+        '200':
+          description: OK
+    delete:
+      summary: Delete an exercise by ID
+      operationId: deleteExercise
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '204':
+          description: No Content
+
+  /performed-exercises:
+    get:
+      summary: Get all performed exercises
+      operationId: getPerformedExercises
+      responses:
+        '200':
+          description: OK
+    post:
+      summary: Create a new performed exercise
+      operationId: createPerformedExercise
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PerformedExerciseDTO'
+      responses:
+        '201':
+          description: Created
+
+  /performed-exercises/{id}:
+    get:
+      summary: Get a performed exercise by ID
+      operationId: getPerformedExerciseById
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+    put:
+      summary: Update a performed exercise by ID
+      operationId: updatePerformedExercise
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PerformedExerciseDTO'
+      responses:
+        '200':
+          description: OK
+    delete:
+      summary: Delete a performed exercise by ID
+      operationId: deletePerformedExercise
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '204':
+          description: No Content
+
+  /sets:
+    post:
+      summary: Create a new set
+      operationId: createSet
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateSetDTO'
+      responses:
+        '201':
+          description: Created
+
+  /sets/{id}:
+    get:
+      summary: Get a set by ID
+      operationId: getSetById
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+    put:
+      summary: Update a set by ID
+      operationId: updateSet
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateSetDTO'
+      responses:
+        '200':
+          description: OK
+    delete:
+      summary: Delete a set by ID
+      operationId: deleteSet
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '204':
+          description: No Content
+
   /users:
     get:
-      tags:
-      - users
-      summary: Find All Users
+      summary: Get all users
+      operationId: getUsers
       responses:
-        200:
-          description: 'OK'
-        500:
-          description: 'Server Error'
-
-# [POST] users
+        '200':
+          description: OK
     post:
-      tags:
-      - users
-      summary: Add User
-      parameters:
-      - name: body
-        in: body
-        description: user Data
+      summary: Create a new user
+      operationId: createUser
+      requestBody:
         required: true
-        schema:
-          $ref: '#/definitions/users'
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateUserDto'
       responses:
-        201:
-          description: 'Created'
-        400:
-          description: 'Bad Request'
-        409:
-          description: 'Conflict'
-        500:
-          description: 'Server Error'
+        '201':
+          description: Created
 
-# [GET] users/id
   /users/{id}:
     get:
-      tags:
-      - users
-      summary: Find User By Id
+      summary: Get a user by ID
+      operationId: getUserById
       parameters:
-      - name: id
-        in: path
-        description: User Id
-        required: true
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
       responses:
-        200:
-          description: 'OK'
-        409:
-          description: 'Conflict'
-        500:
-          description: 'Server Error'
-
-# [PUT] users/id
+        '200':
+          description: OK
     put:
-      tags:
-      - users
-      summary: Update User By Id
+      summary: Update a user by ID
+      operationId: updateUser
       parameters:
-      - name: id
-        in: path
-        description: user Id
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
         required: true
-      - name: body
-        in: body
-        description: user Data
-        required: true
-        schema:
-          $ref: '#/definitions/users'
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateUserDto'
       responses:
-        200:
-          description: 'OK'
-        400:
-          description: 'Bad Request'
-        409:
-          description: 'Conflict'
-        500:
-          description: 'Server Error'
-
-# [DELETE] users/id
+        '200':
+          description: OK
     delete:
-      tags:
-      - users
-      summary: Delete User By Id
+      summary: Delete a user by ID
+      operationId: deleteUser
       parameters:
-      - name: id
-        in: path
-        description: user Id
-        required: true
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
       responses:
-        200:
-          description: 'OK'
-        409:
-          description: 'Conflict'
-        500:
-          description: 'Server Error'
+        '204':
+          description: No Content
 
-# definitions
-definitions:
-  users:
-    type: object
-    required:
-        - email
-        - password
-    properties:
-      email:
-        type: string
-        description: user Email
-      password:
-        type: string
-        description: user Password
+  /workouts:
+    get:
+      summary: Get all workouts
+      operationId: getWorkouts
+      responses:
+        '200':
+          description: OK
+    post:
+      summary: Create a new workout
+      operationId: createWorkout
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/WorkoutDTO'
+      responses:
+        '201':
+          description: Created
 
-schemes:
- - https
- - http
+  /workouts/{id}:
+    get:
+      summary: Get a workout by ID
+      operationId: getWorkoutById
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+    put:
+      summary: Update a workout by ID
+      operationId: updateWorkout
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/WorkoutDTO'
+      responses:
+        '200':
+          description: OK
+    delete:
+      summary: Delete a workout by ID
+      operationId: deleteWorkout
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '204':
+          description: No Content
+
+  /workouts/{workoutId}/link/{performedExerciseId}:
+    post:
+      summary: Link a performed exercise to a workout
+      operationId: linkPerformedExerciseToWorkout
+      parameters:
+        - name: workoutId
+          in: path
+          required: true
+          schema:
+            type: string
+          description: The ID of the workout to which the exercise will be linked
+        - name: performedExerciseId
+          in: path
+          required: true
+          schema:
+            type: string
+          description: The ID of the performed exercise to link to the workout
+      responses:
+        '200':
+          description: Performed Exercise successfully linked to the Workout
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Performed Exercise linked successfully.
+        '400':
+          description: Bad Request
+        '404':
+          description: Not Found
+        '500':
+          description: Internal Server Error
+
+components:
+  schemas:
+    CreateExerciseDTO:
+      type: object
+      properties:
+        name:
+          type: string
+        description:
+          type: string
+        duration:
+          type: number
+    UpdateExerciseDTO:
+      type: object
+      properties:
+        name:
+          type: string
+        description:
+          type: string
+        duration:
+          type: number
+    PerformedExerciseDTO:
+      type: object
+      properties:
+        exerciseId:
+          type: string
+        userId:
+          type: string
+        date:
+          type: string
+          format: date-time
+        notes:
+          type: string
+    CreateSetDTO:
+      type: object
+      properties:
+        name:
+          type: string
+        repetitions:
+          type: integer
+        weight:
+          type: number
+    UpdateSetDTO:
+      type: object
+      properties:
+        name:
+          type: string
+        repetitions:
+          type: integer
+        weight:
+          type: number
+    CreateUserDto:
+      type: object
+      properties:
+        username:
+          type: string
+        email:
+          type: string
+        password:
+          type: string
+    WorkoutDTO:
+      type: object
+      properties:
+        name:
+          type: string
+        description:
+          type: string
+        duration:
+          type: number

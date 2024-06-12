@@ -55,6 +55,18 @@ class WorkoutController {
       next(error);
     }
   };
+
+  public linkPerformedExerciseToWorkout = async (req: Request, res: Response, next: NextFunction) => {
+    const workoutId: string = req.params.workoutId;
+    const performedExerciseId: string = req.params.performedExerciseId;
+
+    try {
+      await this.workoutService.linkPerformedExercise(workoutId, performedExerciseId);
+      res.status(200).json({ message: 'Performed Exercise linked successfully.' });
+    } catch (error) {
+      next(error);
+    }
+  };
 }
 
 export default WorkoutController;
