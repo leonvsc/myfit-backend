@@ -1,10 +1,10 @@
 import { NextFunction, Request, Response } from 'express';
 import { Exercise } from '@interfaces/exercise.interface';
-import { ExercizeService } from '@services/exercize.service';
+import { ExerciseService } from '@services/exercise.service';
 import { CreateExerciseDTO, UpdateExerciseDTO } from '@dtos/exercise.dto';
 
 class ExerciseController {
-  public exerciseService = new ExercizeService();
+  public exerciseService = new ExerciseService();
 
   public getExercises = async (req: Request, res: Response, next: NextFunction) => {
     try {

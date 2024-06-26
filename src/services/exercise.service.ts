@@ -3,7 +3,7 @@ import { Exercise } from '@interfaces/exercise.interface';
 import { HttpException } from '@exceptions/HttpException';
 import { CreateExerciseDTO } from '@dtos/exercise.dto';
 
-export class ExercizeService {
+export class ExerciseService {
   public exercizes = exerciseModel;
 
   public async findAllExercize(): Promise<Exercise[]> {
@@ -49,3 +49,5 @@ export class ExercizeService {
     return updatedExercise as Exercise;
   }
 }
+
+export default ExerciseService;

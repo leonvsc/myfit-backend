@@ -1,58 +1,58 @@
 import { NextFunction, Request, Response } from 'express';
 import { PerformedExercize } from '@interfaces/performedexercize.interface';
-import PerformedExercizeService from '@services/performedexercise.service';
+import PerformedExerciseService from '@services/performedExercise.service';
 import { PerformedExercizeDTO } from '@dtos/performedexercise.dto';
 
-class PerformedExercizeController {
-  public performedExercizeService = new PerformedExercizeService();
+class PerformedExerciseController {
+  public performedExerciseService = new PerformedExerciseService();
 
-  public getPerformedExercizes = async (req: Request, res: Response, next: NextFunction) => {
+  public getPerformedExercises = async (req: Request, res: Response, next: NextFunction) => {
     try {
-      const findAllPerformedExercizesData: PerformedExercize[] = await this.performedExercizeService.findAllPerformedExercizes();
+      const findAllPerformedExercizesData: PerformedExercize[] = await this.performedExerciseService.findAllPerformedExercises();
       res.status(200).json({ data: findAllPerformedExercizesData, message: 'findAll' });
     } catch (error) {
       next(error);
     }
   };
 
-  public getPerformedExercizeById = async (req: Request, res: Response, next: NextFunction) => {
+  public getPerformedExerciseById = async (req: Request, res: Response, next: NextFunction) => {
     try {
-      const performedExercizeId: string = req.params.id;
-      const findOnePerformedExercizeData: PerformedExercize = await this.performedExercizeService.findPerformedExercizeById(performedExercizeId);
-      res.status(200).json({ data: findOnePerformedExercizeData, message: 'findOne' });
+      const performedExerciseId: string = req.params.id;
+      const findOnePerformedExerciseData: PerformedExercize = await this.performedExerciseService.findPerformedExerciseById(performedExerciseId);
+      res.status(200).json({ data: findOnePerformedExerciseData, message: 'findOne' });
     } catch (error) {
       next(error);
     }
   };
 
-  public createPerformedExercize = async (req: Request, res: Response, next: NextFunction) => {
+  public createPerformedExercise = async (req: Request, res: Response, next: NextFunction) => {
     try {
-      const performedExercizeData: PerformedExercizeDTO = req.body;
-      const createPerformedExercizeData: PerformedExercize = await this.performedExercizeService.createPerformedExercize(performedExercizeData);
-      res.status(201).json({ data: createPerformedExercizeData, message: 'created' });
+      const performedExerciseData: PerformedExercizeDTO = req.body;
+      const createPerformedExerciseData: PerformedExercize = await this.performedExerciseService.createPerformedExercise(performedExerciseData);
+      res.status(201).json({ data: createPerformedExerciseData, message: 'created' });
     } catch (error) {
       next(error);
     }
   };
 
-  public updatePerformedExercize = async (req: Request, res: Response, next: NextFunction) => {
+  public updatePerformedExercise = async (req: Request, res: Response, next: NextFunction) => {
     try {
-      const performedExercizeId: string = req.params.id;
-      const performedExercizeData: PerformedExercizeDTO = req.body;
-      const updatePerformedExercizeData: PerformedExercize = await this.performedExercizeService.updatePerformedExercize(
-        performedExercizeId,
-        performedExercizeData,
+      const performedExerciseId: string = req.params.id;
+      const performedExerciseData: PerformedExercizeDTO = req.body;
+      const updatePerformedExerciseData: PerformedExercize = await this.performedExerciseService.updatePerformedExercise(
+        performedExerciseId,
+        performedExerciseData,
       );
-      res.status(200).json({ data: updatePerformedExercizeData, message: 'updated' });
+      res.status(200).json({ data: updatePerformedExerciseData, message: 'updated' });
     } catch (error) {
       next(error);
     }
   };
 
-  public deletePerformedExercize = async (req: Request, res: Response, next: NextFunction) => {
+  public deletePerformedExercise = async (req: Request, res: Response, next: NextFunction) => {
     try {
-      const performedExercizeId: string = req.params.id;
-      await this.performedExercizeService.deletePerformedExercize(performedExercizeId);
+      const performedExerciseId: string = req.params.id;
+      await this.performedExerciseService.deletePerformedExercise(performedExerciseId);
       res.status(200).json({ message: 'deleted' });
     } catch (error) {
       next(error);
@@ -60,4 +60,4 @@ class PerformedExercizeController {
   };
 }
 
-export default PerformedExercizeController;
+export default PerformedExerciseController;
