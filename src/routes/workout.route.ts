@@ -3,12 +3,14 @@ import { Router } from 'express';
 import WorkoutController from '@controllers/workout.controller';
 import validationMiddleware from '@middlewares/validation.middleware';
 import { WorkoutDTO } from '@dtos/workout.dto';
+import authenticationMiddleware from '@middlewares/authentication.middleware';
 
 class WorkoutRoutes {
   public router = Router();
   public workoutController = new WorkoutController();
 
   constructor() {
+    this.router.use(authenticationMiddleware);
     this.initializeRoutes();
   }
 

@@ -1,6 +1,7 @@
 import { Router } from 'express';
 import IndexController from '@controllers/index.controller';
 import { Routes } from '@interfaces/routes.interface';
+import authenticationMiddleware from '@middlewares/authentication.middleware';
 
 class IndexRoute implements Routes {
   public path = '/';
@@ -8,6 +9,7 @@ class IndexRoute implements Routes {
   public indexController = new IndexController();
 
   constructor() {
+    this.router.use(authenticationMiddleware);
     this.initializeRoutes();
   }
 

@@ -3,6 +3,7 @@ import UsersController from '@controllers/users.controller';
 import { CreateUserDto } from '@dtos/users.dto';
 import { Routes } from '@interfaces/routes.interface';
 import validationMiddleware from '@middlewares/validation.middleware';
+import authenticationMiddleware from '@middlewares/authentication.middleware';
 
 class UsersRoute implements Routes {
   public path = '/users';
@@ -10,6 +11,7 @@ class UsersRoute implements Routes {
   public usersController = new UsersController();
 
   constructor() {
+    this.router.use(authenticationMiddleware);
     this.initializeRoutes();
   }
 
