@@ -10,7 +10,7 @@ class SetRoutes {
   public setController = new SetController();
 
   constructor() {
-    this.router.use(authenticationMiddleware);
+    // this.router.use(authenticationMiddleware);
     this.initializeRoutes();
   }
 

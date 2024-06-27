@@ -10,7 +10,7 @@ class WorkoutRoutes {
   public workoutController = new WorkoutController();
 
   constructor() {
-    this.router.use(authenticationMiddleware);
+    // this.router.use(authenticationMiddleware);
     this.initializeRoutes();
   }
 

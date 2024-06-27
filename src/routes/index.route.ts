@@ -9,7 +9,7 @@ class IndexRoute implements Routes {
   public indexController = new IndexController();
 
   constructor() {
-    this.router.use(authenticationMiddleware);
+    // this.router.use(authenticationMiddleware);
     this.initializeRoutes();
   }
 
