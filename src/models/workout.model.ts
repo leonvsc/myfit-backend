@@ -17,7 +17,7 @@ export const workoutSchema: Schema = new Schema({
     type: String,
     required: true,
   },
-  secondaryName: {
+  description: {
     type: String,
     required: true,
   },
