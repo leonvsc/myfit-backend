@@ -4,6 +4,7 @@ import { Exercise } from '@interfaces/exercise.interface';
 export const exerciseSchema: Schema = new Schema({
   name: {
     type: String,
+    details: String,
     required: true,
   },
 });

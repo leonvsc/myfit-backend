@@ -3,12 +3,14 @@ import { Router } from 'express';
 import validationMiddleware from '@middlewares/validation.middleware';
 import SetController from '@controllers/set.controller';
 import { CreateSetDTO, UpdateSetDTO } from '@dtos/set.dto';
+import authenticationMiddleware from '@middlewares/authentication.middleware';
 
 class SetRoutes {
   public router = Router();
   public setController = new SetController();
 
   constructor() {
+    this.router.use(authenticationMiddleware);
     this.initializeRoutes();
   }
 
