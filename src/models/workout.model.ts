@@ -13,6 +13,14 @@ export const workoutSchema: Schema = new Schema({
       required: true,
     },
   ],
+  name: {
+    type: String,
+    required: true,
+  },
+  secondaryName: {
+    type: String,
+    required: true,
+  },
 });
 
 const workoutModel = model<Workout & Document>('Workout', workoutSchema);
