@@ -5,5 +5,5 @@ export interface Workout {
   totalTime: number;
   exercises: PerformedExercize[];
   name: string;
-  secondaryName: string;
+  description: string;
 }
