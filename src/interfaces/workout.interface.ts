@@ -4,4 +4,6 @@ export interface Workout {
   _id: string;
   totalTime: number;
   exercises: PerformedExercize[];
+  name: string;
+  secondaryName: string;
 }
